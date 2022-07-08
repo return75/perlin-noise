@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Perlin noise</title>
+</head>
+<body>
+    <form id="form" action="javascript:reset()">
+        <input type="number" placeholder="points number" id="points-number">
+        <input type="number" step=".001" placeholder="points speed" id="points-speed" value=".02">
+        <input type="number" placeholder="time of disappearance (in ms)" id="disappear-time">
+        <button type="submit">apply</button>
+    </form>
+    <canvas id="scene"></canvas>
+    <script src="./perlin-noise-3d.js"></script>
+    <script src="./vector.js"></script>
+    <script src="./script.js"></script>
+    <script>
+        function reset () {
+            let points_number = document.querySelector("#points-number").value;
+            let points_speed = document.querySelector("#points-speed").value;
+            let disappear_time = document.querySelector("#disappear-time").value;
+            pointsNumber = points_number || 8
+            pointsSpeed = points_speed || .02
+            disappearTime = disappear_time || 2000
+            resetPerlinNoise()
+        }
+        function resetPerlinNoise() {
+            allPoints = []
+            points = createRandomPointsOnSphere()
+            cancelAnimationFrame(animationFrameId)
+            update()
+        }
+    </script>
+</body>
+<style>
+
+    body {
+        display: flex;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Cambria;
+    }
+    #form {
+        position: absolute;
+        left: 50px;
+        top: 50px;
+        width: 300px;
+        max-width: 90%;
+    }
+    input {
+        width: 100%;
+        border-radius: 5px;
+        margin-top: 10px;
+        text-align: left;
+        border: 1px solid #bebebe;
+        height: 40px;
+        padding-right: 15px;
+        color: black;
+        font-family: Cambria;
+    }
+    button {
+        border-radius: 5px;
+        margin-top: 10px;
+        height: 40px;
+        background: #004dc0;
+        color: white;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        font-family: Cambria;
+    }
+
+</style>
+</html>
