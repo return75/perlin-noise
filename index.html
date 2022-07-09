@@ -21,9 +21,9 @@
             let points_number = document.querySelector("#points-number").value;
             let points_speed = document.querySelector("#points-speed").value;
             let disappear_time = document.querySelector("#disappear-time").value;
-            pointsNumber = points_number || 100
-            pointsSpeed = points_speed || .005
-            disappearTime = disappear_time || 100
+            pointsNumber = points_number || 50
+            pointsSpeed = points_speed || .008
+            disappearTime = disappear_time || 300
             resetPerlinNoise()
         }
         function resetPerlinNoise() {
@@ -72,6 +72,11 @@
         width: 100%;
         border: none;
         font-family: Cambria;
+    }
+    @media only screen and (max-width: 600px) {
+        #form {
+            display: none;
+        }
     }
 
 </style>
