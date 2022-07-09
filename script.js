@@ -4,12 +4,12 @@ let canvas = document.querySelector("canvas"),
     height = canvas.height = window.innerHeight,
     circleRadius = 2,
     focalLength = 300,
-    sphereRadius = 200,
+    sphereRadius = width > 600 ? 200 : (width - 100) / 2,
     sphereCenterZ = 0,
-    pointsSpeed = .02,
-    pointsNumber = 6,
+    pointsSpeed = .005,
+    pointsNumber = 100,
     animationFrameId = null,
-    disappearTime = 2000,
+    disappearTime = 100,
     frameCount = 0;
 const noise = new perlinNoise3d();
 let allPoints = []
